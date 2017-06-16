@@ -2,7 +2,7 @@
 var loadTextResource = function (url, callback){
   // Request using GET method:
   var request = new XMLHttpRequest();
-  request.open('GET', url + '?hello-world' + Math.random(), true);
+  request.open('GET', url, true);
 
   // Check onload status:
   request.onload = function (){

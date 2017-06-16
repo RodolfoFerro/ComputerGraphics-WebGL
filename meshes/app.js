@@ -4,25 +4,25 @@ var model;
 // OnLoad function:
 var InitWebGL = function (){
   // Load vertex shader:
-  loadTextResource('../meshes/shader_vs.glsl', function (vsErr, vsText){
+  loadTextResource('./shader_vs.glsl', function (vsErr, vsText){
     if (vsErr){
       alert('Fatal error getting vertex shader (check details in console).');
       console.error(vsErr);
     } else{
       // Load fragment shader:
-      loadTextResource('../meshes/shader_fs.glsl', function (fsErr, fsText){
+      loadTextResource('./shader_fs.glsl', function (fsErr, fsText){
         if (fsErr){
           alert('Fatal error getting fragment shader (check details in console).');
           console.error(fsErr);
         } else{
           // Load Susan JSON file with object models:
-          loadJSONResource('../meshes/susan.json', function (modelErr, modelObj){
+          loadJSONResource('./susan.json', function (modelErr, modelObj){
             if (modelErr){
               alert('Fatal error getting object model (check details in console).');
               console.error(modelErr);
             } else{
               // Load Susan object texture :
-              loadImage('../meshes/susanTexture.png', function (imgErr, img){
+              loadImage('./susanTexture.png', function (imgErr, img){
                 if (imgErr){
                   alert('Fatal error loading object texture (check details in console).');
                   console.error(imgErr);
