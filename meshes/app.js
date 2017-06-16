@@ -4,7 +4,7 @@ var model;
 // OnLoad function:
 var InitWebGL = function (){
   // Load vertex shader:
-  loadTextResource('./shader_vs.glsl', function (vsErr, vsText){
+  loadTextResource('./meshes/shader_vs.glsl', function (vsErr, vsText){
     if (vsErr){
       alert('Fatal error getting vertex shader (check details in console).');
       console.error(vsErr);
