@@ -4,25 +4,25 @@ var model;
 // OnLoad function:
 var InitWebGL = function (){
   // Load vertex shader:
-  loadTextResource('./shader_vs.glsl', function (vsErr, vsText){
+  loadTextResource('./ilumination/shader_vs.glsl', function (vsErr, vsText){
     if (vsErr){
       alert('Fatal error getting vertex shader (check details in console).');
       console.error(vsErr);
     } else{
       // Load fragment shader:
-      loadTextResource('./shader_fs.glsl', function (fsErr, fsText){
+      loadTextResource('./ilumination/shader_fs.glsl', function (fsErr, fsText){
         if (fsErr){
           alert('Fatal error getting fragment shader (check details in console).');
           console.error(fsErr);
         } else{
           // Load Susan JSON file with object models:
-          loadJSONResource('./susan.json', function (modelErr, modelObj){
+          loadJSONResource('./ilumination/Susan.json', function (modelErr, modelObj){
             if (modelErr){
               alert('Fatal error getting object model (check details in console).');
               console.error(modelErr);
             } else{
               // Load Susan object texture :
-              loadImage('./susanTexture.png', function (imgErr, img){
+              loadImage('./ilumination/SusanTexture.png', function (imgErr, img){
                 if (imgErr){
                   alert('Fatal error loading object texture (check details in console).');
                   console.error(imgErr);
@@ -61,11 +61,11 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   }
 
   // Canvas size:
-  // canvas.width  = window.innerWidth;
-  // canvas.height = window.innerHeight;
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
 
   // Viewport resize:
-  // gl.viewport(0, 0, window.innerWidth, window.innerHeight);
+  gl.viewport(0, 0, window.innerWidth, window.innerHeight);
 
   // Clear color window:
   var background_color = [22/255, 44/255, 66/255];
