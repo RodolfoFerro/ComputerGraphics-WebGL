@@ -4,13 +4,13 @@ var model;
 // OnLoad function:
 var InitWebGL = function (){
   // Load vertex shader:
-  loadTextResource('./meshes/shader_vs.glsl', function (vsErr, vsText){
+  loadTextResource('shader_vs.glsl', function (vsErr, vsText){
     if (vsErr){
       alert('Fatal error getting vertex shader (check details in console).');
       console.error(vsErr);
     } else{
       // Load fragment shader:
-      loadTextResource('./shader_fs.glsl', function (fsErr, fsText){
+      loadTextResource('shader_fs.glsl', function (fsErr, fsText){
         if (fsErr){
           alert('Fatal error getting fragment shader (check details in console).');
           console.error(fsErr);
