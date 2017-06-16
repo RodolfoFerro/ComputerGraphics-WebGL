@@ -232,7 +232,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   var sunlightIntUniformLocation = gl.getUniformLocation(program, 'sun.color');
   var sunlightDirUniformLocation = gl.getUniformLocation(program, 'sun.direction');
   // Set variable values:
-  gl.uniform3f(ambientUniformLocation, 0.3, 0.3, 1.3); // Color de la luz
+  gl.uniform3f(ambientUniformLocation, 0.4, 0.4, 0.4); // Color de la luz
   gl.uniform3f(sunlightIntUniformLocation, 0.5, 0.5, 0.9);
   gl.uniform3f(sunlightDirUniformLocation, 3.0, 4.0, -2.0);
 
