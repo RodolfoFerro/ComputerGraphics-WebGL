@@ -4,25 +4,25 @@ var model;
 // OnLoad function:
 var InitWebGL = function (){
   // Load vertex shader:
-  loadTextResource('./shader_vs.glsl', function (vsErr, vsText){
+  loadTextResource('./normals_obj/shader_vs.glsl', function (vsErr, vsText){
     if (vsErr){
       alert('Fatal error getting vertex shader (check details in console).');
       console.error(vsErr);
     } else{
       // Load fragment shader:
-      loadTextResource('./shader_fs.glsl', function (fsErr, fsText){
+      loadTextResource('./normals_obj/shader_fs.glsl', function (fsErr, fsText){
         if (fsErr){
           alert('Fatal error getting fragment shader (check details in console).');
           console.error(fsErr);
         } else{
           // Load Susan JSON file with object models:
-          loadJSONResource('./dark_fighter_6.json', function (modelErr, modelObj){
+          loadJSONResource('./normals_obj/dark_fighter_6.json', function (modelErr, modelObj){
             if (modelErr){
               alert('Fatal error getting object model (check details in console).');
               console.error(modelErr);
             } else{
               // Load Susan object texture :
-              loadImage('./dark_fighter_6_color.png', function (imgErr, img){
+              loadImage('./normals_obj/dark_fighter_6_color.png', function (imgErr, img){
                 if (imgErr){
                   alert('Fatal error loading object texture (check details in console).');
                   console.error(imgErr);
