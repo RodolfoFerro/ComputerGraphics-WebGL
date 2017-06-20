@@ -16,13 +16,13 @@ var InitWebGL = function (){
           console.error(fsErr);
         } else{
           // Load Susan JSON file with object models:
-          loadJSONResource('./meshes/Susan.json', function (modelErr, modelObj){
+          loadJSONResource('./meshes/space_cruiser_4.json', function (modelErr, modelObj){
             if (modelErr){
               alert('Fatal error getting object model (check details in console).');
               console.error(modelErr);
             } else{
               // Load Susan object texture :
-              loadImage('./meshes/SusanTexture.png', function (imgErr, img){
+              loadImage('./meshes/space_cruiser_4_color.png', function (imgErr, img){
                 if (imgErr){
                   alert('Fatal error loading object texture (check details in console).');
                   console.error(imgErr);
