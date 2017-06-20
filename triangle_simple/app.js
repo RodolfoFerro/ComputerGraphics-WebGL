@@ -117,7 +117,7 @@ var InitWebGL = function (){
   );
   gl.vertexAttribPointer(
     colorAttribLocation, // Attribute location
-    3, // Number of elements per attribute (vec2)
+    3, // Number of elements per attribute (vec3)
     gl.FLOAT, // Type of elements
     gl.FALSE, //
     5 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex

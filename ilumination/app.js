@@ -233,7 +233,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SpaceshipImage, S
   var sunlightDirUniformLocation = gl.getUniformLocation(program, 'sun.direction');
   // Set variable values:
   gl.uniform3f(ambientUniformLocation, 0.3, 0.3, 0.3); // Color de la luz
-  gl.uniform3f(sunlightIntUniformLocation, 0.5, 0.5, 0.9);
+  gl.uniform3f(sunlightIntUniformLocation, 1.2, 1.2, 1.2);
   gl.uniform3f(sunlightDirUniformLocation, 3.0, 4.0, -2.0);
 
   var loop = function (){
