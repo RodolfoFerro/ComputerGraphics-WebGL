@@ -231,11 +231,6 @@ var InitWebGL = function (){
       );
     }
   }
-  gl.texImage2D(
-    gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-    gl.UNSIGNED_BYTE,
-    document.getElementById(x)
-  );
   gl.bindTexture(gl.TEXTURE_2D, null);
 
   // Begin using program:
