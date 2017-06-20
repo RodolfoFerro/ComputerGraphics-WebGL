@@ -13,17 +13,17 @@ LightMapDemoScene.prototype.Load = function (cb) {
 	async.parallel({
 		Models: function (callback) {
 			async.map({
-				RoomModel: './Room.json'
+				RoomModel: './scene/Room.json'
 			}, loadJSONResource, callback);
 		},
 		ShaderCode: function (callback) {
 			async.map({
-				'NoShadow_VSText': './shaders/NoShadow_vs.glsl',
-				'NoShadow_FSText': './shaders/NoShadow_fs.glsl',
-				'Shadow_VSText': './shaders/Shadow_vs.glsl',
-				'Shadow_FSText': './shaders/Shadow_fs.glsl',
-				'ShadowMapGen_VSText': './shaders/ShadowMapGen_vs.glsl',
-				'ShadowMapGen_FSText': './shaders/ShadowMapGen_fs.glsl'
+				'NoShadow_VSText': './scene/shaders/NoShadow_vs.glsl',
+				'NoShadow_FSText': './scene/shaders/NoShadow_fs.glsl',
+				'Shadow_VSText': './scene/shaders/Shadow_vs.glsl',
+				'Shadow_FSText': './scene/shaders/Shadow_fs.glsl',
+				'ShadowMapGen_VSText': './scene/shaders/ShadowMapGen_vs.glsl',
+				'ShadowMapGen_FSText': './scene/shaders/ShadowMapGen_fs.glsl'
 			}, loadTextResource, callback);
 		}
 	}, function (loadErrors, loadResults) {
