@@ -15,14 +15,14 @@ var InitWebGL = function (){
           alert('Fatal error getting fragment shader (check details in console).');
           console.error(fsErr);
         } else{
-          // Load Susan JSON file with object models:
-          loadJSONResource('./susan.json', function (modelErr, modelObj){
+          // Load Spaceship JSON file with object models:
+          loadJSONResource('./space_cruiser_4.json', function (modelErr, modelObj){
             if (modelErr){
               alert('Fatal error getting object model (check details in console).');
               console.error(modelErr);
             } else{
-              // Load Susan object texture :
-              loadImage('./susanTexture.png', function (imgErr, img){
+              // Load Spaceship object texture :
+              loadImage('./space_cruiser_4_color.png', function (imgErr, img){
                 if (imgErr){
                   alert('Fatal error loading object texture (check details in console).');
                   console.error(imgErr);
@@ -40,11 +40,11 @@ var InitWebGL = function (){
 };
 
 // Run function:
-var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, SusanModel){
+var RunWebGL = function (vertexShaderText, fragmentShaderText, SpaceshipImage, SpaceshipModel){
 
   // Loading message:
   console.log("Successfuly loaded.");
-  model = SusanModel;
+  model = SpaceshipModel;
 
   // Get canvas and set context:
   var canvas = document.getElementById('webgl-canvas');
@@ -113,31 +113,31 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
     return;
   }
 
-  // Create Susan model:
-  var susanVertices = SusanModel.meshes[0].vertices;
+  // Create Spaceship model:
+  var SpaceshipVertices = SpaceshipModel.meshes[0].vertices;
 
-  // Susan model indices for shared triangle faces:
-  var susanIndices = [].concat.apply([], SusanModel.meshes[0].faces);
+  // Spaceship model indices for shared triangle faces:
+  var SpaceshipIndices = [].concat.apply([], SpaceshipModel.meshes[0].faces);
 
-  // Susan model texture coordinates:
-  var susanTexCoords = SusanModel.meshes[0].texturecoords[0];
+  // Spaceship model texture coordinates:
+  var SpaceshipTexCoords = SpaceshipModel.meshes[0].texturecoords[0];
 
   // Create vertex buffer:
-  var susanPosVertexBufferObject = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, susanPosVertexBufferObject);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(susanVertices), gl.STATIC_DRAW);
+  var SpaceshipPosVertexBufferObject = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, SpaceshipPosVertexBufferObject);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(SpaceshipVertices), gl.STATIC_DRAW);
 
   // Create texture buffer:
-  var susanTexCoordVertexBufferObject = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, susanTexCoordVertexBufferObject);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(susanTexCoords), gl.STATIC_DRAW);
+  var SpaceshipTexCoordVertexBufferObject = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, SpaceshipTexCoordVertexBufferObject);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(SpaceshipTexCoords), gl.STATIC_DRAW);
 
   // Create index buffer:
-  var susanIndexBufferObject = gl.createBuffer();
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, susanIndexBufferObject);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(susanIndices), gl.STATIC_DRAW);
+  var SpaceshipIndexBufferObject = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, SpaceshipIndexBufferObject);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(SpaceshipIndices), gl.STATIC_DRAW);
 
-  gl.bindBuffer(gl.ARRAY_BUFFER, susanPosVertexBufferObject);
+  gl.bindBuffer(gl.ARRAY_BUFFER, SpaceshipPosVertexBufferObject);
   // Locate position and color of vertices:
   var positionAttribLocation = gl.getAttribLocation(program, 'vertPosition');
   gl.vertexAttribPointer(
@@ -150,7 +150,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   );
   gl.enableVertexAttribArray(positionAttribLocation);
 
-  gl.bindBuffer(gl.ARRAY_BUFFER, susanTexCoordVertexBufferObject);
+  gl.bindBuffer(gl.ARRAY_BUFFER, SpaceshipTexCoordVertexBufferObject);
   var texCoordAttribLocation = gl.getAttribLocation(program, 'vertTexCoord');
   gl.vertexAttribPointer(
     texCoordAttribLocation, // Attribute location
@@ -163,8 +163,8 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   gl.enableVertexAttribArray(texCoordAttribLocation);
 
   // Create texture:
-  susanTexture = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, susanTexture);
+  SpaceshipTexture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, SpaceshipTexture);
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
@@ -173,7 +173,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   gl.texImage2D(
     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
     gl.UNSIGNED_BYTE,
-    SusanImage
+    SpaceshipImage
   );
   gl.bindTexture(gl.TEXTURE_2D, null);
 
@@ -190,7 +190,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   var viewMatrix  = new Float32Array(16);
   var projMatrix  = new Float32Array(16);
   mat4.identity(worldMatrix);
-  mat4.lookAt(viewMatrix, [0, 0, -8], [0, 0, 0], [1, 1, 0]); // lookAt(out, eye, center, up) → {mat4}
+  mat4.lookAt(viewMatrix, [0, 0, -100], [0, 0, 0], [1, 1, 0]); // lookAt(out, eye, center, up) → {mat4}
   mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.1, 1000.0); // perspective(out, fovy, aspect, near, far) → {mat4}
 
   gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
@@ -220,11 +220,11 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); // We clear color and depth buffer
 
     // Bind texture:
-    gl.bindTexture(gl.TEXTURE_2D, susanTexture);
+    gl.bindTexture(gl.TEXTURE_2D, SpaceshipTexture);
     gl.activeTexture(gl.TEXTURE0);
 
     // Draw objects:
-    gl.drawElements(gl.TRIANGLES, susanIndices.length, gl.UNSIGNED_SHORT, 0);
+    gl.drawElements(gl.TRIANGLES, SpaceshipIndices.length, gl.UNSIGNED_SHORT, 0);
 
     requestAnimationFrame(loop);
   };
