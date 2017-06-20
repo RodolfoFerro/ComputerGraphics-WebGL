@@ -216,20 +216,18 @@ var InitWebGL = function (){
       gl.UNSIGNED_BYTE,
       document.getElementById('texture1')
     );
-  } else{
-    if (document.getElementById('option2').checked){
+  } else if (document.getElementById('option2').checked){
       gl.texImage2D(
         gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
         gl.UNSIGNED_BYTE,
         document.getElementById('texture2')
       );
-    } else{
-      gl.texImage2D(
-        gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-        gl.UNSIGNED_BYTE,
-        document.getElementById('texture3')
-      );
-    }
+  } else{
+    gl.texImage2D(
+      gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      document.getElementById('texture3')
+    );
   }
   gl.bindTexture(gl.TEXTURE_2D, null);
 
