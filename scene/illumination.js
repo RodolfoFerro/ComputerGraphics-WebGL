@@ -57,7 +57,7 @@ LightMapDemoScene.prototype.Load = function (cb) {
 				case 'TableMesh':
 					me.TableMesh = new Model(
 						me.gl, mesh.vertices, [].concat.apply([], mesh.faces),
-						mesh.normals, vec4.fromValues(1, 0, 1, 1)
+						mesh.normals, vec4.fromValues(1, 1, 0, 1)
 					);
 					mat4.translate(
 						me.TableMesh.world, me.TableMesh.world,
@@ -67,7 +67,7 @@ LightMapDemoScene.prototype.Load = function (cb) {
 				case 'SofaMesh':
 					me.SofaMesh = new Model(
 						me.gl, mesh.vertices, [].concat.apply([], mesh.faces),
-						mesh.normals, vec4.fromValues(0, 1, 1, 1)
+						mesh.normals, vec4.fromValues(0, 0.5, 1, 1)
 					);
 					mat4.translate(
 						me.SofaMesh.world, me.SofaMesh.world,
