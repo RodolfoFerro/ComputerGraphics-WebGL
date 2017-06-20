@@ -210,28 +210,27 @@ var InitWebGL = function (){
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  // if (document.getElementById('option1').checked){
-  //   gl.texImage2D(
-  //     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //     gl.UNSIGNED_BYTE,
-  //     document.getElementById('texture1')
-  //   );
-  // } else{
-  //   if (document.getElementById('option2').checked){
-  //     gl.texImage2D(
-  //       gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //       gl.UNSIGNED_BYTE,
-  //       document.getElementById('texture2')
-  //     );
-  //   } else{
-  //     gl.texImage2D(
-  //       gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //       gl.UNSIGNED_BYTE,
-  //       document.getElementById('texture3')
-  //     );
-  //   }
-  // }
-  var x = Array.prototype.filter.call(document.getElementsByName('options'), function(x) { return x.checked })[0];
+  if (document.getElementById('option1').checked){
+    gl.texImage2D(
+      gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      document.getElementById('texture1')
+    );
+  } else{
+    if (document.getElementById('option2').checked){
+      gl.texImage2D(
+        gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        document.getElementById('texture2')
+      );
+    } else{
+      gl.texImage2D(
+        gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        document.getElementById('texture3')
+      );
+    }
+  }
   gl.texImage2D(
     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
     gl.UNSIGNED_BYTE,
