@@ -30,20 +30,7 @@ var fragmentShaderText =
 '}'
 ].join('\n');
 
-var selection = function (){
-  if (document.getElementById('option1').checked == true){
-    txt =  'texture1';
-    InitWebGL(txt);
-  } else if (document.getElementById('option2').checked == true){
-    txt = 'texture2';
-    InitWebGL(txt);
-  } else{
-    txt =  'texture3';
-    InitWebGL(txt);
-  }
-};
-
-var InitWebGL = function (texture){
+var InitWebGL = function (){
 
   // Loading message:
   console.log("Successfuly loaded.");
@@ -223,32 +210,10 @@ var InitWebGL = function (texture){
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  // if (document.getElementById('option1').checked == true){
-  //   console.log("Texture 1 selected.");
-  //   gl.texImage2D(
-  //     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //     gl.UNSIGNED_BYTE,
-  //     document.getElementById('texture1')
-  //   );
-  // } else if (document.getElementById('option2').checked == true){
-  //   console.log("Texture 2 selected.");
-  //   gl.texImage2D(
-  //     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //     gl.UNSIGNED_BYTE,
-  //     document.getElementById('texture2')
-  //   );
-  // } else{
-  //   console.log("Texture 3 selected.");
-  //   gl.texImage2D(
-  //     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-  //     gl.UNSIGNED_BYTE,
-  //     document.getElementById('texture3')
-  //   );
-  // }
   gl.texImage2D(
     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
     gl.UNSIGNED_BYTE,
-    document.getElementById(texture)
+    document.getElementById('texture')
   );
   gl.bindTexture(gl.TEXTURE_2D, null);
 
