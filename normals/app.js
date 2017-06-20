@@ -210,7 +210,7 @@ var RunWebGL = function (vertexShaderText, fragmentShaderText, SusanImage, Susan
   var viewMatrix  = new Float32Array(16);
   var projMatrix  = new Float32Array(16);
   mat4.identity(worldMatrix);
-  mat4.lookAt(viewMatrix, [0, 0, 10], [0, 0, 0], [1, 1, 0]); // lookAt(out, eye, center, up) → {mat4}
+  mat4.lookAt(viewMatrix, [0, 0, -100], [0, 0, 0], [1, 1, 0]); // lookAt(out, eye, center, up) → {mat4}
   mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.1, 1000.0); // perspective(out, fovy, aspect, near, far) → {mat4}
 
   gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
