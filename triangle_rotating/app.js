@@ -161,7 +161,7 @@ var InitWebGL = function (){
   var loop = function (){
     // Setup rotation:
     angle = performance.now() / 1000 / 6 * 2 * Math.PI; // Get time to define angle
-    mat4.rotate(worldMatrix, identityMatrix, angle, [1, 1, 0]); // rotate(out, a, rad, axis) → {mat4}
+    mat4.rotate(worldMatrix, identityMatrix, angle, [1, 1, 1]); // rotate(out, a, rad, axis) → {mat4}
     gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
 
     // Clear screen:
